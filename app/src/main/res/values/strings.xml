@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AppEtanolGasolina</string>
+    <string name="description">Imagem_app</string>
+    <string name="text_title">Escolha a melhor opção de combustivel para seu carro!</string>
+    <string name="hint_alcool">Digite o valor do alcool ex: 1.90</string>
+    <string name="hint_gasolina">Digite o valor da gasolina ex: 2.90</string>
+    <string name="text_btn_calcular">Calcular</string>
+    <string name="txt_result">Resultado</string>
 </resources>
