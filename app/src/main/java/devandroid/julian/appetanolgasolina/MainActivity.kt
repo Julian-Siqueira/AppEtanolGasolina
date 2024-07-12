@@ -38,6 +38,36 @@ class MainActivity : AppCompatActivity() {
         }
         //criar o método inicializacaoDeComponentes
         inicializarComponentesInterface()
+
+        //chamo o objeto btnCalcular e executo o metodo de "verificar se o botao foi clicado"
+        btnCalcular.setOnClickListener {
+            //crio o metodo calcularPreço
+            calcularPreco()
+        }
+    }
+
+    //crio a função do metodo calcular preço
+    private fun calcularPreco() {
+
+        //crio 2 variaveis para receber o editText do layout
+        //faço um cast pra toString pois esta como tipo: Editable
+        val precoAlcool = editAlcool.text.toString()
+        val precoGasolina = editGasolina.text.toString()
+
+        //faco um cast pra toDouble, para calcular
+        val Resultado =  precoAlcool.toDouble() / precoGasolina.toDouble()
+
+
+        //esse calculo achei no google.
+        if (Resultado >= 0.7){
+            textResultado.setText("Vale a pena abastecer com Gasolina")
+        }else{
+            textResultado.setText("Vale a pena abastecer com Alcool")
+        }
+
+
+
+
     }
 
     //crio a funçao do método
