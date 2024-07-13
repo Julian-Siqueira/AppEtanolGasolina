@@ -1,6 +1,6 @@
 # App Etanol ou Gasolina
 
-![AppEtanolOuGasolina]([link_para_captura_de_tela](https://github.com/user-attachments/assets/71b71fd1-6ee8-4d3c-b176-d113bc0050a0))
+![AppEtanolOuGasolina](https://github.com/user-attachments/assets/71b71fd1-6ee8-4d3c-b176-d113bc0050a0)
 
 Projeto e bem básico, apenas verifica se vale a pena abastecer com Etanol ou Gasolina<br>
 
