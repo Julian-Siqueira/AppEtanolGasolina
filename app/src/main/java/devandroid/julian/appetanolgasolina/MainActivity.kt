@@ -1,12 +1,15 @@
 package devandroid.julian.appetanolgasolina
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isEmpty
+import androidx.core.view.isInvisible
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -50,24 +53,47 @@ class MainActivity : AppCompatActivity() {
     private fun calcularPreco() {
 
         //crio 2 variaveis para receber o editText do layout
-        //faço um cast pra toString pois esta como tipo: Editable
+        //faço um cast pra toString pois editAlcool.text é do tipo: Editable
         val precoAlcool = editAlcool.text.toString()
         val precoGasolina = editGasolina.text.toString()
 
-        //faco um cast pra toDouble, para calcular
-        val Resultado =  precoAlcool.toDouble() / precoGasolina.toDouble()
+        val CamposValidos = validarCampos(precoAlcool, precoGasolina)
+
+        if(CamposValidos){
+            //faco um cast pra toDouble, para calcular
+            val Resultado =  precoAlcool.toDouble() / precoGasolina.toDouble()
+
+            //esse calculo achei no google.
+            if (Resultado >= 0.7){
+                //seto a textResultado pra visible, para poder aparecer o text na View
+                textResultado.visibility = View.VISIBLE
+                textResultado.setText("Vale a pena abastecer com Gasolina")
+            }else{
+                textResultado.visibility = View.VISIBLE
+                textResultado.setText("Vale a pena abastecer com Alcool")
+            }
+        }
+    }
+
+    private fun validarCampos(pAlcool: String, pGasolina: String): Boolean {
+
+        //inicio com o component input setando seu atributo para vazio.
+        textInputAlcool.error = ""
+        textInputGasolina.error = ""
 
 
-        //esse calculo achei no google.
-        if (Resultado >= 0.7){
-            textResultado.setText("Vale a pena abastecer com Gasolina")
-        }else{
-            textResultado.setText("Vale a pena abastecer com Alcool")
+        if(pAlcool.isEmpty()){
+            //caso pAlcool não tenha nada, ele mostra o text abaixo
+            textInputAlcool.error = "Digite o preço do alcool!"
+            textResultado.visibility = View.INVISIBLE
+            return false
+        }else if (pGasolina.isEmpty()){
+            textInputGasolina.error = "Digite o preço da Gasolina"
+            textResultado.visibility = View.INVISIBLE
+            return false
         }
 
-
-
-
+        return true
     }
 
     //crio a funçao do método
@@ -86,5 +112,7 @@ class MainActivity : AppCompatActivity() {
         btnCalcular = findViewById(R.id.btn_calcular)
 
         textResultado = findViewById(R.id.text_view_resultado)
+        //setei a visibilidade da view pra invisivel, para nao aparecer nada.
+        textResultado.visibility = View.INVISIBLE
     }
 }
