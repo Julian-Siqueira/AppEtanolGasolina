@@ -11,13 +11,3 @@ caso não digite nenhum valor:<br>
 colocando os valores corretamente:<br>
 ![resultadoapp](https://github.com/user-attachments/assets/896e6ed1-d041-48ec-9fa5-7a5cf37bcf62)
 
-
-
-
-
-#### Caso queira contribuir no projeto:<br>
-- Faça um fork do projeto<br>
-- Crie uma branch para a sua feature (git checkout -b feature/feature-nome)<br>
-- Commit suas mudanças (git commit -m 'Adiciona feature-nome')<br>
-- Push para a branch (git push origin feature/feature-nome)<br>
-- Abra um Pull Request, que irei verificar e adicionar ao projeto.<br>
